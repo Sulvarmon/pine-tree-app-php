@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <!-- fixing favicon icon not found err -->
+    <link rel="shortcut icon" href="#">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PineTree</title>
+
+    <!-- google fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+
+
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- google icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <!-- connect to css and js -->
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+
+    <!-- jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+    <header class="home_header">
+        <div class="header_cont_outer">
+            <div class="header_cont_wrapper">
+                <div class="header_cont">
+                    <div class="logo"></div>
+                    <div class="header_cont_right_side_mobile">
+                        <div class="search_icon">
+                            <i class="material-icons">search</i>
+                        </div>
+                        <div class="menu_icon">
+                            <img src="./images/show_hide.svg" alt="">
+                        </div>
+                    </div>
+                    <div class="header_cont_right_side">
+                        <!-- appended in app.js -->
+                        <div class="header_cont_right_side_menu"></div>
+                        <div class="search_icon">
+                            <i class="material-icons">search</i>
+                        </div>
+                        <div class="lan_cont">
+                            <div class="header_cont_right_side_menu_item language_pc language_pc_en active_language">EN</div>
+                            <div class="header_cont_right_side_menu_item language_pc language_pc_ge">GE</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="menu_dropdown">
+                <!-- appended in app.js -->
+                <div class="menu_dropdown_items_cont"></div>
+                <div class="menu_dropdown_lan_cont">
+                    <div class="menu_dropdown_lan_cont_item language_mobile language_mobile_en active_language">EN</div>
+                    <div class="menu_dropdown_lan_cont_item language_mobile language_mobile_ge">GE</div>
+                </div>
+            </div>
+            <div class="header_carousel"></div>
+            <div class="no_home_header_bg_image"></div>
+        </div>
+    </header>
+
+    <main class="home_main">
+        <div class="news_cont_wrapper">
+            <div class="newsTitle">News & Offers</div>
+
+            <!-- news 1 -->
+
+            <div class="news_cont" id="news1_home_page">
+                <div class="news_img_cont_wrapper">
+                    <div class="news_img_cont news_img_cont1"></div>
+                </div>
+                <div class="news_text_and_button_cont">
+                    <div class="news_text_cont">
+                        <div class="news_date_cont news_date_cont1">
+                            <div class="news_date_item news_date_item_date">17</div>
+                            <div class="news_date_item">Jan</div>
+                            <div class="news_date_item">2017</div>
+                        </div>
+                        <div class="news_product_title news_product_title1"></div>
+                    </div>
+                    <div class="news_button">Read More</div>
+                </div>
+            </div>
+
+            <!-- news 2 -->
+            <div class="news_cont" id="news2_home_page">
+                <div class="news_img_cont_wrapper">
+                    <div class="news_img_cont news_img_cont2"></div>
+                </div>
+                <div class="news_text_and_button_cont">
+                    <div class="news_text_cont">
+                        <div class="news_date_cont news_date_cont2">
+                            <div class="news_date_item news_date_item_date">17</div>
+                            <div class="news_date_item">Dec</div>
+                            <div class="news_date_item">2016</div>
+                        </div>
+                        <div class="news_product_title news_product_title2"></div>
+                    </div>
+                    <div class="news_button">Read More</div>
+                </div>
+            </div>
+
+            <div class="news_button all_news">All News</div>
+
+        </div>
+
+        <!-- about us -->
+
+        <div class="about_us_cont">
+            <div class="about_us_inner_cont">
+                <div class="about_us_title">About Us</div>
+                <div class="about_us_text about_us_text_en">
+                    Pine Tree Group was created in 2012 year as a holding company and united 3 different direction: Pine Tree LLC - Import & Distribution Pine Tree Construction LLC - Architecture, Design & Construction Special Trading Company Interkon Logistics - international
+                    intermediary service and re-exports Pine Tree LLC is operating on Georgian marker from 1998 year, till 2012 year it was famous as Humana Georgia LLC. From 2o12 year Pine Tree LLC became a multibrand company and now it's one of the
+                    strong and leading company in FMCG. Pine Tree LLC is an excl...
+                </div>
+                <div style="display: none;" class="about_us_text about_us_text_ge">
+                    ფაინ თრი გრუპი შეიქმნა 2012 წელს წარმოადგენს ჰოლდინგურ კომპანიას, რომელიც აერთიანებს 3 მიმართულებას: შპს ფაინ თრი - იმპორტი და დისტრიბუცია შპს ფაინ თრი ქონსთრაქშენი - არქიტექტურა, დიზაინი და მშენებლობა შპს სპეციალური სავაჭრო კომპანია ინტერკონ ლოჯისტიკსი
+                    - საერთოშორისო საშუამავლო მომსახურება და რეექსპორტი შპს ფაინ თრი ქართულ სადისტრუბიციო ბაზარზე 1998 წლიდან ოპერირებს და 2012 წლამდე "ჰუმანა ჯორჯიას" სახელით იყო ცნობილი. 2012 წლიდან კომპანია გახდა მულტიბრენდული, დღესდღეობით ერთი-ერთ
+                    ძლიერ და წამყვან სადისტრიბუციო კომპანიას წარმოადგენს. შპს ფაინ თრი მსოფლიოშ...
+                </div>
+                <div class="about_us_button">Read More</div>
+            </div>
+        </div>
+
+        <!-- partners -->
+
+
+
+        <div class="partners_cont">
+            <div class="partners_title">Partners</div>
+            <div class="carousel_with_arrows_cont">
+                <div class="partners_cont_carousel_left_arrow"><i class="material-icons partners_passive_arrow">navigate_before</i></div>
+                <div class="partners_carousel_cont">
+                    <div class="partners_carousel_cont_item partners_carousel_cont_item0"></div>
+                    <div class="partners_carousel_cont_item partners_carousel_cont_item1"></div>
+                    <div class="partners_carousel_cont_item partners_carousel_cont_item2"></div>
+                    <div class="partners_carousel_cont_item partners_carousel_cont_item3"></div>
+                    <div class="partners_carousel_cont_item partners_carousel_cont_item4"></div>
+                </div>
+                <div class="partners_cont_carousel_right_arrow"><i class="material-icons partners_active_arrow">navigate_next</i></div>
+            </div>
+        </div>
+
+
+        <!-- new products -->
+
+        <div class="new_products_cont">
+            <div class="new_products_title">New Products</div>
+            <div class="new_products_grid_cont">
+                <div class="new_products_grid_item">
+                    <div class="new_products_grid_item_img new_products_grid_item_img1"></div>
+                    <div class="new_products_grid_item_name new_products_grid_item_name1">Loading ...</div>
+                    <div class="new_products_grid_item_button">View Product</div>
+                </div>
+                <div class="new_products_grid_item">
+                    <div class="new_products_grid_item_img new_products_grid_item_img2"></div>
+                    <div class="new_products_grid_item_name new_products_grid_item_name2">Loading ...</div>
+                    <div class="new_products_grid_item_button">View Product</div>
+                </div>
+                <div class="new_products_grid_item">
+                    <div class="new_products_grid_item_img new_products_grid_item_img3"></div>
+                    <div class="new_products_grid_item_name new_products_grid_item_name3">Loading ...</div>
+                    <div class="new_products_grid_item_button">View Product</div>
+                </div>
+                <div class="new_products_grid_item">
+                    <div class="new_products_grid_item_img new_products_grid_item_img4"></div>
+                    <div class="new_products_grid_item_name new_products_grid_item_name4">Loading ...</div>
+                    <div class="new_products_grid_item_button">View Product</div>
+                </div>
+            </div>
+            <div class="new_products_cont_all_button">All Products</div>
+        </div>
+    </main>
+    <main class="products_main">
+        <div class="pages_title">Products</div>
+        <div class="products_dropdown_wrapper">
+            <div class="products_dropdown">
+                <span>Choose Category</span>
+                <span>View Products</span>
+            </div>
+            <div class="products_dropdown_block">
+                <div class="products_dropdown_block_line">
+                    <div class="products_dropdown_block_line_text">baby Food</div>
+                    <div class="products_dropdown_block_line_arrow"><i class="material-icons">expand_more</i></div>
+                </div>
+                <div class="products_arrow_expand products_arrow_expand0">
+                    <ul>
+                        <li>Juice</li>
+                        <li>Tea</li>
+                        <li>Cereals</li>
+                        <li>jars</li>
+                        <li>Desserts</li>
+                        <li>Special Milk</li>
+                        <li>Milk Formula</li>
+                    </ul>
+                </div>
+                <div class="products_dropdown_block_line">
+                    <div class="products_dropdown_block_line_text">baby Care</div>
+                    <div class="products_dropdown_block_line_arrow"><i class="material-icons">expand_more</i></div>
+                </div>
+                <div class="products_arrow_expand products_arrow_expand1">
+                    <ul>
+                        <li>Personal Care</li>
+                        <li>Wet Wipes</li>
+                        <li>Diapers</li>
+                    </ul>
+                </div>
+                <div class="products_dropdown_block_line">
+                    <div class="products_dropdown_block_line_text">Confectionary</div>
+                    <div class="products_dropdown_block_line_arrow"><i class="material-icons">expand_more</i></div>
+                </div>
+                <div class="products_arrow_expand products_arrow_expand2">
+                    <ul>
+                        <li>Turrons</li>
+                        <li>Chocolate</li>
+                        <li>Biscuits</li>
+                    </ul>
+                </div>
+                <div class="products_dropdown_block_line">
+                    <div class="products_dropdown_block_line_text">Tea</div>
+                    <div class="products_dropdown_block_line_arrow"><i class="material-icons">expand_more</i></div>
+                </div>
+                <div class="products_arrow_expand products_arrow_expand0">
+                    <ul>
+                        <li>Wellness Tea</li>
+                        <li>Pyramids</li>
+                        <li>Leaf Tea In Tin</li>
+                        <li>Lea Tea</li>
+                        <li>Enveloped Bags</li>
+                        <li>Tea Bags</li>
+                    </ul>
+                </div>
+                <div class="products_dropdown_block_line">
+                    <div class="products_dropdown_block_line_text">Dairy</div>
+                    <div class="products_dropdown_block_line_arrow"><i class="material-icons disable">expand_more</i></div>
+                </div>
+                <div class="products_dropdown_block_line">
+                    <div class="products_dropdown_block_line_text">Clening</div>
+                    <div class="products_dropdown_block_line_arrow"><i class="material-icons disable">expand_more</i></div>
+                </div>
+            </div>
+        </div>
+        <div class="products_dropdown_pc_and_products_cont">
+            <div class="products_dropdown_pc">
+                <div class="products_dropdown_pc_item">
+                    <div class="products_dropdown_pc_item_icon"></div>
+                    <div class="products_dropdown_pc_item_name">All</div>
+                </div>
+                <div class="products_dropdown_pc_item products_drop_on_hover products_drop_on_hover_bf">
+                    <div class="products_dropdown_pc_item_icon"></div>
+                    <div class="products_dropdown_pc_item_name">Baby Food</div>
+                </div>
+                <div class="products_dropdown_pc_item products_drop_on_hover products_drop_on_hover_bc">
+                    <div class="products_dropdown_pc_item_icon"></div>
+                    <div class="products_dropdown_pc_item_name">Baby Care</div>
+                </div>
+                <div class="products_dropdown_pc_item products_drop_on_hover products_drop_on_hover_cnf">
+                    <div class="products_dropdown_pc_item_icon"></div>
+                    <div class="products_dropdown_pc_item_name">Confectionary</div>
+                </div>
+                <div class="products_dropdown_pc_item products_drop_on_hover products_drop_on_hover_t">
+                    <div class="products_dropdown_pc_item_icon"></div>
+                    <div class="products_dropdown_pc_item_name">Tea</div>
+                </div>
+                <div class="products_dropdown_pc_item">
+                    <div class="products_dropdown_pc_item_icon"></div>
+                    <div class="products_dropdown_pc_item_name">Diary</div>
+                </div>
+                <div class="products_dropdown_pc_item">
+                    <div class="products_dropdown_pc_item_icon"></div>
+                    <div class="products_dropdown_pc_item_name">Clening</div>
+                </div>
+            </div>
+            <div class="products_category_drop_cont_wrapper">
+                <div class="products_category_drop_cont_wrapper_inner">
+                    <div class="products_category_drop_cont">
+                        <div class="products_category_drop_icon"></div>
+                        <div class="products_category_drop_name">Juice</div>
+                    </div>
+                    <div class="products_category_drop_cont">
+                        <div class="products_category_drop_icon"></div>
+                        <div class="products_category_drop_name">Tea</div>
+                    </div>
+                    <div class="products_category_drop_cont">
+                        <div class="products_category_drop_icon"></div>
+                        <div class="products_category_drop_name">Cereals</div>
+                    </div>
+                    <div class="products_category_drop_cont">
+                        <div class="products_category_drop_icon"></div>
+                        <div class="products_category_drop_name">Jars</div>
+                    </div>
+                    <div class="products_category_drop_cont">
+                        <div class="products_category_drop_icon"></div>
+                        <div class="products_category_drop_name">Desserts</div>
+                    </div>
+                    <div class="products_category_drop_cont">
+                        <div class="products_category_drop_icon"></div>
+                        <div class="products_category_drop_name">Special Milk</div>
+                    </div>
+                    <div class="products_category_drop_cont">
+                        <div class="products_category_drop_icon"></div>
+                        <div class="products_category_drop_name">Milk Formula</div>
+                    </div>
+                </div>
+                <div class="products_category_drop_cont_wrapper_inner">
+                    <div class="products_category_drop_cont">
+                        <div class="products_category_drop_icon"></div>
+                        <div class="products_category_drop_name">Personal Care</div>
+                    </div>
+                    <div class="products_category_drop_cont">
+                        <div class="products_category_drop_icon"></div>
+                        <div class="products_category_drop_name">Wet Wipes</div>
+                    </div>
+                    <div class="products_category_drop_cont">
+                        <div class="products_category_drop_icon"></div>
+                        <div class="products_category_drop_name">Diapers</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </main>
+    <main class="partners_main">
+        <div class="pages_title">Partners</div>
+    </main>
+    <main class="clients_main">
+        <div class="pages_title">Clients</div>
+    </main>
+    <main class="news_main">
+        <div class="pages_title">News</div>
+    </main>
+    <main class="about_main">
+        <div class="pages_title">About</div>
+    </main>
+    <main class="contacts_main">
+        <div class="pages_title">Contacts</div>
+    </main>
+
+
+
+    <footer>
+        <div class="footer_cont">
+            <div class="footer_inner_cont">
+                <div class="upper_footer">
+                    <div class="footer_logo"></div>
+                    <div class="footer_menu">
+                        <div class="footer_menu_left">
+                            <div class="footer_menu_item footer_menu_item0">Home</div>
+                            <div class="footer_menu_item footer_menu_item1">Products</div>
+                            <div class="footer_menu_item footer_menu_item2">Partners</div>
+                            <div class="footer_menu_item footer_menu_item3">Our Clients</div>
+                        </div>
+                        <div class="footer_menu_right">
+                            <div class="footer_menu_item footer_menu_item4">News</div>
+                            <div class="footer_menu_item footer_menu_item5">About Us</div>
+                            <div class="footer_menu_item footer_menu_item6">Contacts</div>
+                        </div>
+                    </div>
+                    <div class="footer_right_cont">
+                        <div class="footer_tel">+995 (032) 2 38 93 80</div>
+                        <div class="footer_address">Georgia, Tbilisi D.Agmashenebeli Alley 12.Km</div>
+                        <div class="footer_map_cont">
+                            <div class="footer_map_icon"><i class="material-icons">location_on</i></div>
+                            <div class="footer_map_text">View On Map</div>
+                        </div>
+                        <div class="fb-like" data-href="http://localhost:8082/" data-width="" data-layout="button_count" data-action="like" data-size="large" data-share="false"></div>
+                        <div class="footer_fb_and_mail_cont">
+                            <a href="https://www.facebook.com/Humana/" target="_blank"><i class="fa fa-facebook-f footer_fb_and_mail_fb_icon"></i></a>
+                            <div><i class="fa fa-envelope footer_fb_and_mail_mail_icon"></i></div>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="lower_footer">
+                    <div class="footer_copyright_cont">
+                        <div class="copyright_icon"><i class="material-icons">copyright</i></div>
+                        <div class="footer_copyright_text">2016 - 2022 Ltd "Pine Tree". All rights reserved.</div>
+                    </div>
+                    <div class="top_ge_cont">
+                        <a class="top_ge_text" href="https://www.top.ge/index.php?h=107227#107227" target="_blank">TOP.GE</a>
+                        <div class="top_ge_icon"><i class="material-icons">bar_chart</i></div>
+                    </div>
+                    <div class="footer_author">Created by <a href="https://hobbystudio.ge/georgian/home" target="_blank">HobbyStudio</a> </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="reload_animation"></div>
+</body>
+
+</html>
