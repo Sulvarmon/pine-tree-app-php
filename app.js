@@ -173,7 +173,7 @@ $(document).ready(function() {
 
     //give new products image and name (home page)
     $.each(productsArray, function(i, e) {
-        $(`.new_products_grid_item_img${i+1}`).css('background-image', "url('./Images/products/" + e.product_img + "')")
+        $(`.new_products_grid_item_img${i+1}`).css('background-image', "url('./Images/products/" + e.product_img.replace("big", "") + "')")
         $(`.new_products_grid_item_name${i+1}`).text(`${e.product_name}`)
         if (i === 3) {
             return false
@@ -438,7 +438,7 @@ $(document).ready(function() {
     $.each(productsArray, function(i, e) {
         $(".product_main_grid").append("<div class='product_main_grid_item product_main_grid_item" + i + "'></div>");
         $(".product_main_grid_item" + i + "").append("<div class='product_main_grid_item_img product_main_grid_item_img" + i + "'></div>");
-        $(".product_main_grid_item_img" + i + "").css("background-image", "url('./Images/products/" + e.product_img + "')")
+        $(".product_main_grid_item_img" + i + "").css("background-image", "url('./Images/products/" + e.product_img.replace("big", "") + "')")
         $(".product_main_grid_item" + i + "").append("<div class='product_main_grid_item_name product_main_grid_item_name" + i + "'>" + e.product_name + "</div>");
         $(".product_main_grid_item" + i + "").append("<div class='product_main_grid_item_button product_main_grid_item_button" + i + "'>View Product</div>");
     })

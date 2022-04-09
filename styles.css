@@ -853,7 +853,7 @@ body {
 }
 
 .new_products_grid_item_img {
-    width: 80%;
+    width: 90%;
     margin: auto;
     padding-bottom: 100%;
     background-position: center;
@@ -1466,9 +1466,11 @@ body {
 }
 
 .product_main_grid_item_img {
-    width: 80%;
+    width: 90%;
     padding-bottom: 100%;
-    background-size: 100% 100%;
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .product_main_grid_item_name {
