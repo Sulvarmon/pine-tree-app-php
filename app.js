@@ -29,6 +29,10 @@ $(document).ready(function() {
     var aboutItemIndex = 0;
 
     //functions
+    function winScr() {
+        $(window).scrollTop(0);
+    }
+
     function reloadAnimation() {
         $(".reload_animation").css({ opacity: "1", zIndex: "1000" });
         setTimeout(function() {
@@ -72,7 +76,7 @@ $(document).ready(function() {
                 $(`.${e}`).css("display", "none");
             })
             $(`.${pages[index]}`).css("display", "block");
-            $(window).scrollTop(0);
+            winScr()
         }, timeout)
     }
 
@@ -115,9 +119,103 @@ $(document).ready(function() {
         })
     }
 
+
+    function categoryClicks(index, category) {
+        reloadAnimation()
+        setTimeout(function() {
+            winScr()
+            if (index > 4) {
+                $(".no_info").css("display", "block");
+            } else {
+                $(".no_info").css("display", "none");
+            }
+            $(".products_arrow_expand_item").removeClass("active_page");
+            $(".products_dropdown_pc_item_name").removeClass("active_page");
+            $(".products_dropdown_pc_item_name").eq(index).addClass("active_page");
+            $(".products_dropdown_block_line_text").removeClass("active_page");
+            $(".products_dropdown_block_line_text").eq(index - 1).addClass("active_page");
+            if (index === 0) {
+                $(".products_dropdown_block_line_text").removeClass("active_page")
+                $(".products_pages_indicators").css("display", "flex");
+                $(".products_pages_indicators_item").removeClass("active_page");
+                $(".products_pages_indicators_item").eq(index).addClass("active_page");
+                $(".product_main_grid_item").css("display", "none");
+                for (var i = 0; i < 16; i++) {
+                    $(`.product_main_grid_item${i}`).css("display", "flex");
+                }
+            } else {
+                $(".products_pages_indicators").css("display", "none")
+                $(".products_pages_indicators_item").removeClass("active_page");
+                $(".product_main_grid_item").css("display", "none");
+                $.each(productsArray, function(i, e) {
+                    if (e.product_category === category) {
+                        $(`.product_main_grid_item${i}`).css("display", "flex");
+                    }
+                })
+            }
+        }, timeout)
+    }
+
+    function categoryClicksMobile(index, category) {
+        reloadAnimation()
+        $(".products_dropdown_block").slideUp(300);
+        productsDropdownBlockState = false;
+        setTimeout(function() {
+            winScr()
+            if (index > 3) {
+                $(".no_info").css("display", "block");
+            } else {
+                $(".no_info").css("display", "none");
+            }
+            $(".products_arrow_expand_item").removeClass("active_page");
+            $(".products_dropdown_block_line_text").removeClass("active_page");
+            $(".products_dropdown_block_line_text").eq(index).addClass("active_page");
+            $(".products_dropdown_pc_item_name").removeClass("active_page");
+            $(".products_dropdown_pc_item_name").eq(index + 1).addClass("active_page");
+            $(".products_pages_indicators").css("display", "none")
+            $(".products_pages_indicators_item").removeClass("active_page");
+            $(".products_pages_indicators_item").eq(index).addClass("active_page");
+            $(".product_main_grid_item").css("display", "none");
+            $.each(productsArray, function(i, e) {
+                if (e.product_category === category) {
+                    $(`.product_main_grid_item${i}`).css("display", "flex");
+                }
+            })
+        }, timeout)
+    }
+
+    function subcategoryClicks(indexCategory, indexSubCategory, sub) {
+        reloadAnimation()
+        $(".products_dropdown_block").slideUp(300);
+        productsDropdownBlockState = false;
+        setTimeout(function() {
+            $(".products_pages_indicators").css("display", "none");
+            $(".product_main_grid_item").css("display", "none");
+            $(".products_dropdown_pc_item_name").removeClass("active_page");
+            $(".products_dropdown_block_line_text").removeClass("active_page");
+            $(".products_arrow_expand_item").removeClass("active_page");
+            $(".products_category_drop_name").removeClass("active_page");
+            if (sub === "juice" || sub === "tea") {
+                $(".no_info").css("display", "block")
+            } else {
+                $(".no_info").css("display", "none")
+                $.each(productsArray, function(i, e) {
+                    if (e.product_subcategory === sub) {
+                        $(".product_main_grid_item").eq(i).css("display", "flex")
+                    }
+                })
+            }
+            $(".products_dropdown_pc_item_name").eq(indexCategory + 1).addClass("active_page");
+            $(".products_dropdown_block_line_text").eq(indexCategory).addClass("active_page");
+            $(".products_arrow_expand_item").eq(indexSubCategory).addClass("active_page");
+            $(".products_category_drop_name").eq(indexSubCategory).addClass("active_page");
+            console.log(indexCategory)
+        }, timeout)
+    }
+
     //scroll window to top after refresh
     $(window).on('beforeunload', function() {
-        $(window).scrollTop(0);
+        winScr()
     });
 
     //ajax calls
@@ -443,6 +541,30 @@ $(document).ready(function() {
         $(".product_main_grid_item" + i + "").append("<div class='product_main_grid_item_button product_main_grid_item_button" + i + "'>View Product</div>");
     })
 
+    //do not display any of products items
+    $(".product_main_grid_item").css("display", "none");
+
+    //products items initial display (1 page)
+    for (var i = 0; i < 16; i++) {
+        $(`.product_main_grid_item${i}`).css("display", "flex");
+    }
+
+    //products pages ( 1-9 number clicks )
+    $(".products_pages_indicators_item").click(function(ev) {
+        reloadAnimation();
+        setTimeout(function() {
+            $(".products_pages_indicators_item").removeClass("active_page");
+            $(ev.target).addClass("active_page");
+            $(".product_main_grid_item").css("display", "none");
+            var page = parseInt($(ev.target).text()) - 1;
+            var index = page * 16;
+            for (var i = index; i < index + 16; i++) {
+                $(`.product_main_grid_item${i}`).css("display", "flex");
+            }
+            $(window).scrollTop(0)
+        }, timeout)
+    })
+
     //append partners grid items
     $.each(partnersArray, function(i, e) {
         $(".partners_main_grid").append("<div class='partners_main_grid_item partners_main_grid_item" + i + "'></div>")
@@ -619,7 +741,156 @@ $(document).ready(function() {
         }
     })
 
+    //news page news containers animation
+    $(".header_cont_right_side_menu_item").click(function() {
+        setTimeout(function() {
+            $(".news_cont_news_pg").eq(0).css({ transform: "translateX(0px)", opacity: "1" });
+        }, 500)
+        setTimeout(function() {
+            $(".news_cont_news_pg").eq(1).css({ transform: "translateX(0px)", opacity: "1" });
+        }, 1000)
+    })
 
+    //click on category item ( large screens)
+    $(".products_dropdown_pc_item").eq(0).click(function() {
+        categoryClicks(0);
+    })
+    $(".products_dropdown_pc_item").eq(1).click(function() {
+        categoryClicks(1, "baby_food");
+    })
+    $(".products_dropdown_pc_item").eq(2).click(function() {
+        categoryClicks(2, "baby_care");
+    })
+    $(".products_dropdown_pc_item").eq(3).click(function() {
+        categoryClicks(3, "confectionary");
+    })
+    $(".products_dropdown_pc_item").eq(4).click(function() {
+        categoryClicks(4, "tea");
+    })
+    $(".products_dropdown_pc_item").eq(5).click(function() {
+        categoryClicks(5);
+    })
+    $(".products_dropdown_pc_item").eq(6).click(function() {
+        categoryClicks(6);
+    })
+
+    //click on category item ( mobile screens)
+    $(".products_dropdown_block_line_text").eq(0).click(function() {
+        categoryClicksMobile(0, "baby_food")
+    })
+    $(".products_dropdown_block_line_text").eq(1).click(function() {
+        categoryClicksMobile(1, "baby_care")
+    })
+    $(".products_dropdown_block_line_text").eq(2).click(function() {
+        categoryClicksMobile(2, "confectionary")
+    })
+    $(".products_dropdown_block_line_text").eq(3).click(function() {
+        categoryClicksMobile(3, "tea")
+    })
+    $(".products_dropdown_block_line_text").eq(4).click(function() {
+        categoryClicksMobile(4);
+    })
+    $(".products_dropdown_block_line_text").eq(5).click(function() {
+        categoryClicksMobile(5);
+    })
+
+    //clicks on subcategory items ( mobile and large screens )
+    $(".products_arrow_expand_item:eq(0), .products_category_drop_cont:eq(0)").click(function() {
+        subcategoryClicks(0, 0, "juice");
+    })
+    $(".products_arrow_expand_item:eq(1), .products_category_drop_cont:eq(1)").click(function() {
+        subcategoryClicks(0, 1, "tea");
+    })
+    $(".products_arrow_expand_item:eq(2), .products_category_drop_cont:eq(2)").click(function() {
+        subcategoryClicks(0, 2, "cereal");
+    })
+    $(".products_arrow_expand_item:eq(3), .products_category_drop_cont:eq(3)").click(function() {
+        subcategoryClicks(0, 3, "jar");
+    })
+    $(".products_arrow_expand_item:eq(4), .products_category_drop_cont:eq(4)").click(function() {
+        subcategoryClicks(0, 4, "dessert");
+    })
+    $(".products_arrow_expand_item:eq(5), .products_category_drop_cont:eq(5)").click(function() {
+        subcategoryClicks(0, 5, "special_milk");
+    })
+    $(".products_arrow_expand_item:eq(6), .products_category_drop_cont:eq(6)").click(function() {
+        subcategoryClicks(0, 6, "milk_formula");
+    })
+    $(".products_arrow_expand_item:eq(7), .products_category_drop_cont:eq(7)").click(function() {
+        subcategoryClicks(1, 7, "personal_care");
+    })
+    $(".products_arrow_expand_item:eq(8), .products_category_drop_cont:eq(8)").click(function() {
+        subcategoryClicks(1, 8, "wet_wipe");
+    })
+    $(".products_arrow_expand_item:eq(9), .products_category_drop_cont:eq(9)").click(function() {
+        subcategoryClicks(1, 9, "diaper");
+    })
+    $(".products_arrow_expand_item:eq(10), .products_category_drop_cont:eq(10)").click(function() {
+        subcategoryClicks(2, 10, "turron");
+    })
+    $(".products_arrow_expand_item:eq(11), .products_category_drop_cont:eq(11)").click(function() {
+        subcategoryClicks(2, 11, "chocolate");
+    })
+    $(".products_arrow_expand_item:eq(12), .products_category_drop_cont:eq(12)").click(function() {
+        subcategoryClicks(2, 12, "biscuit");
+    })
+    $(".products_arrow_expand_item:eq(13), .products_category_drop_cont:eq(13)").click(function() {
+        subcategoryClicks(3, 13, "wellness_tea");
+    })
+    $(".products_arrow_expand_item:eq(14), .products_category_drop_cont:eq(14)").click(function() {
+        subcategoryClicks(3, 14, "pyramid");
+    })
+    $(".products_arrow_expand_item:eq(15), .products_category_drop_cont:eq(15)").click(function() {
+        subcategoryClicks(3, 15, "leaf_tea_in_tin");
+    })
+    $(".products_arrow_expand_item:eq(16), .products_category_drop_cont:eq(16)").click(function() {
+        subcategoryClicks(3, 16, "lea_tea");
+    })
+    $(".products_arrow_expand_item:eq(17), .products_category_drop_cont:eq(17)").click(function() {
+        subcategoryClicks(3, 17, "enveloped_bag");
+    })
+    $(".products_arrow_expand_item:eq(18), .products_category_drop_cont:eq(18)").click(function() {
+        subcategoryClicks(3, 18, "tea_bag");
+    })
+
+    //handle single product item clicks
+
+    //create singe product single item images 
+    $.each(productsArray, function(i, e) {
+        $(".products_single_items_cont").append("<div class='products_single_item_img'></div>");
+        $(".products_single_items_cont").append("<div class='products_single_item_name'></div>");
+        $(`.products_single_item_img:eq(${i})`).css("background-image", 'url("./Images/products/' + e.product_img + '")')
+        $(`.products_single_item_name:eq(${i})`).text(`${e.product_name}`)
+    })
+
+    function productsSingleItemClick(index) {
+        reloadAnimation();
+        setTimeout(function() {
+            winScr()
+            $(".product_main_grid_item, .products_pages_indicators, .products_single_item_img, .products_single_item_name").css("display", "none");
+            $(`.products_single_items_cont, .products_single_item_img:eq(${index}), .products_single_item_name:eq(${index})`).css("display", "flex");
+        }, timeout)
+    }
+
+    $(".product_main_grid_item:eq(0)").click(function() {
+        productsSingleItemClick(0);
+    })
+    $(".product_main_grid_item:eq(1)").click(function() {
+        productsSingleItemClick(1);
+    })
+    $(".product_main_grid_item:eq(2)").click(function() {
+        productsSingleItemClick(2);
+    })
+    $(".product_main_grid_item:eq(3)").click(function() {
+        productsSingleItemClick(3);
+    })
+
+    //hide items on category click
+    $(".products_dropdown_pc_item").click(function() {
+        setTimeout(function() {
+            $(".products_single_items_cont").css("display", "none")
+        }, timeout)
+    })
 
 
 
