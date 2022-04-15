@@ -2,6 +2,8 @@ $(document).ready(function() {
     //variables
     var headerImages = ["url('./images/bg_img_1.jpg')", "url('./images/bg_img_2.jpg')", "url('./images/bg_img_3.jpg')", "url('./images/bg_img_4.jpg')", ];
     var pages = ["home_main", "products_main", "partners_main", "clients_main", "news_main", "about_main", "contacts_main"];
+    var includes = ["include (1).png", "include (2).png", "include (3).png", "include (4).png", "include (5).png", "include (6).png"];
+    var partners = ["partner1.png", "partner2.png", "partner3.png", "partner4.png", "partner5.png"]
     var headerCrsCurrentItem = 1;
     var menuArray = [];
     var partnersArray = [];
@@ -129,24 +131,20 @@ $(document).ready(function() {
             } else {
                 $(".no_info").css("display", "none");
             }
-            $(".products_arrow_expand_item").removeClass("active_page");
-            $(".products_dropdown_pc_item_name").removeClass("active_page");
+            $(".products_arrow_expand_item, .products_category_drop_name, .products_dropdown_pc_item_name, .products_dropdown_block_line_text").removeClass("active_page");
             $(".products_dropdown_pc_item_name").eq(index).addClass("active_page");
-            $(".products_dropdown_block_line_text").removeClass("active_page");
             $(".products_dropdown_block_line_text").eq(index - 1).addClass("active_page");
             if (index === 0) {
-                $(".products_dropdown_block_line_text").removeClass("active_page")
+                $(".products_dropdown_block_line_text, .products_pages_indicators_item").removeClass("active_page")
                 $(".products_pages_indicators").css("display", "flex");
-                $(".products_pages_indicators_item").removeClass("active_page");
                 $(".products_pages_indicators_item").eq(index).addClass("active_page");
                 $(".product_main_grid_item").css("display", "none");
                 for (var i = 0; i < 16; i++) {
                     $(`.product_main_grid_item${i}`).css("display", "flex");
                 }
             } else {
-                $(".products_pages_indicators").css("display", "none")
+                $(".products_pages_indicators, .product_main_grid_item").css("display", "none")
                 $(".products_pages_indicators_item").removeClass("active_page");
-                $(".product_main_grid_item").css("display", "none");
                 $.each(productsArray, function(i, e) {
                     if (e.product_category === category) {
                         $(`.product_main_grid_item${i}`).css("display", "flex");
@@ -209,8 +207,118 @@ $(document).ready(function() {
             $(".products_dropdown_block_line_text").eq(indexCategory).addClass("active_page");
             $(".products_arrow_expand_item").eq(indexSubCategory).addClass("active_page");
             $(".products_category_drop_name").eq(indexSubCategory).addClass("active_page");
-            console.log(indexCategory)
         }, timeout)
+    }
+
+    function productsActivePageDef(indexCat, indexSubcat) {
+        $(`.products_dropdown_pc_item_name:eq(${indexCat + 1})`).addClass("active_page");
+        $(`.products_category_drop_name:eq(${indexSubcat})`).addClass("active_page");
+        $(`.products_dropdown_block_line_text:eq(${indexCat})`).addClass("active_page");
+        $(`.products_arrow_expand_item:eq(${indexSubcat})`).addClass("active_page");
+    }
+
+    function productPartnerAndIncludeDef(index) {
+        $(".producs_partner_cont_item").css("display", "none");
+        $(".producs_partner_cont_item").eq(index).css("display", "block");
+    }
+
+    function productsSingleItemClick(index, product_name, sub) {
+        reloadAnimation();
+        setTimeout(function() {
+            winScr()
+            $(".product_main_grid_item, .products_pages_indicators, .products_single_item_img, .products_single_item_name").css("display", "none");
+            $(`.similar_items_wrapper, .products_single_item_img:eq(${index}), .products_single_item_name:eq(${index})`).css("display", "flex");
+            $(".products_dropdown_block_line_text, .products_arrow_expand_item, .products_dropdown_pc_item_name, .products_category_drop_name").removeClass("active_page");
+            if (sub === "juice") {
+                //We do not have that product yet
+            }
+            if (sub === "tea") {
+                //We do not have that product yet
+            }
+            if (sub === "cereal") {
+                productsActivePageDef(0, 2);
+                productPartnerAndIncludeDef(0);
+            }
+            if (sub === "jar") {
+                productsActivePageDef(0, 3)
+                productPartnerAndIncludeDef(0);
+            }
+            if (sub === "dessert") {
+                productsActivePageDef(0, 4)
+                productPartnerAndIncludeDef(0);
+            }
+            if (sub === "special_milk") {
+                productsActivePageDef(0, 5)
+                productPartnerAndIncludeDef(0);
+            }
+            if (sub === "milk_formula") {
+                productsActivePageDef(0, 6)
+                productPartnerAndIncludeDef(0);
+            }
+            if (sub === "personal_care") {
+                productsActivePageDef(1, 7)
+                productPartnerAndIncludeDef(4);
+            }
+            if (sub === "wet_wipe") {
+                productsActivePageDef(1, 8)
+                productPartnerAndIncludeDef(4);
+            }
+            if (sub === "diaper") {
+                productsActivePageDef(1, 9)
+                productPartnerAndIncludeDef(4);
+            }
+            if (sub === "turron") {
+                productsActivePageDef(2, 10)
+                productPartnerAndIncludeDef();
+            }
+            if (sub === "chocolate") {
+                productsActivePageDef(2, 11)
+                productPartnerAndIncludeDef(1);
+            }
+            if (sub === "biscuit") {
+                productsActivePageDef(2, 12)
+                productPartnerAndIncludeDef(2);
+            }
+            if (sub === "wellness_tea") {
+                productsActivePageDef(3, 13)
+                productPartnerAndIncludeDef(3);
+            }
+            if (sub === "pyramid") {
+                productsActivePageDef(3, 14)
+                productPartnerAndIncludeDef(3);
+            }
+            if (sub === "leaf_tea_in_tin") {
+                productsActivePageDef(3, 15)
+                productPartnerAndIncludeDef(3);
+            }
+            if (sub === "lea_tea") {
+                productsActivePageDef(3, 16)
+                productPartnerAndIncludeDef(3);
+            }
+            if (sub === "enveloped_bag") {
+                productsActivePageDef(3, 17)
+                productPartnerAndIncludeDef(3);
+            }
+            if (sub === "tea_bag") {
+                productsActivePageDef(3, 18)
+                productPartnerAndIncludeDef(3);
+            }
+            $.each(productsArray, function(i, e) {
+                if (sub === e.product_subcategory) {
+                    $(`.product_main_grid_item${i}`).css("display", "flex");
+                }
+                if (product_name === e.product_name) {
+                    $(`.product_main_grid_item${i}`).css("display", "none");
+                }
+            })
+
+        }, timeout)
+    }
+
+    function productsSingleItemClickTrigger(index) {
+        $(`.product_main_grid_item:eq(${index})`).click(function() {
+            productsSingleItemClick(index, `${productsArray[index].product_name}`, `${productsArray[index].product_subcategory}`, `${productsArray[index].product_category}`);
+        })
     }
 
     //scroll window to top after refresh
@@ -853,8 +961,6 @@ $(document).ready(function() {
         subcategoryClicks(3, 18, "tea_bag");
     })
 
-    //handle single product item clicks
-
     //create singe product single item images 
     $.each(productsArray, function(i, e) {
         $(".products_single_items_cont").append("<div class='products_single_item_img'></div>");
@@ -863,43 +969,59 @@ $(document).ready(function() {
         $(`.products_single_item_name:eq(${i})`).text(`${e.product_name}`)
     })
 
-    function productsSingleItemClick(index) {
-        reloadAnimation();
-        setTimeout(function() {
-            winScr()
-            $(".product_main_grid_item, .products_pages_indicators, .products_single_item_img, .products_single_item_name").css("display", "none");
-            $(`.products_single_items_cont, .products_single_item_img:eq(${index}), .products_single_item_name:eq(${index})`).css("display", "flex");
-        }, timeout)
+    //defines all product item clicks 
+    for (var i = 0; i < productsArray.length; i++) {
+        productsSingleItemClickTrigger(i);
     }
 
-    $(".product_main_grid_item:eq(0)").click(function() {
-        productsSingleItemClick(0);
-    })
-    $(".product_main_grid_item:eq(1)").click(function() {
-        productsSingleItemClick(1);
-    })
-    $(".product_main_grid_item:eq(2)").click(function() {
-        productsSingleItemClick(2);
-    })
-    $(".product_main_grid_item:eq(3)").click(function() {
-        productsSingleItemClick(3);
-    })
-
     //hide items on category click
-    $(".products_dropdown_pc_item").click(function() {
+    $(".products_dropdown_pc_item, .products_category_drop_cont, .products_dropdown_block_line_text, .products_arrow_expand_item").click(function() {
         setTimeout(function() {
-            $(".products_single_items_cont").css("display", "none")
+            $(".similar_items_wrapper").css("display", "none");
         }, timeout)
     })
 
+    //append producs_partner_cont
+    $.each(partners, function(i, e) {
+        $(".producs_partner_cont").append("<div class='producs_partner_cont_item'></div>")
+        $(".producs_partner_cont_item").eq(i).css("background-image", "url('./Images/" + e + "')")
+    })
 
 
 
+    //hide all producs_partner_cont_item
+    $(".producs_partner_cont_item").css("display", "none");
 
+    //append products_include
+    $.each(includes, function(i, e) {
+        $(".products_includes").append("<div class='products_includes_item'></div>");
+        $(".products_includes_item").eq(i).css("background-image", "url('./Images/" + e + "')")
+    })
 
+    //single item click dark background
+    $(".producs_partner_cont").click(function(ev) {
+        $(".fixed_dark_bg_cont_partners").css({ visibility: "visible", opacity: "1" });
+        $(".display_box_partners_item").css("display", "none");
+        $(`.display_box_partners_item${$(ev.target).index()}`).css("display", "flex");
+    });
 
+    //click on single item will make dark bg visible 
+    $(".products_single_items_cont").click(() => {
+        if ($(window).width() >= 770) {
+            $(".fixed_dark_bg_sip_cont").css({ visibility: "visible", opacity: "1" });
+        }
+    });
+    $(".dark_bg_sip, .close_sip").click(() => {
+        $(".fixed_dark_bg_sip_cont").css({ visibility: "hidden", opacity: "0" });
+    });
 
-
+    //display single image and name on dark bg ( big image )
+    $.each(productsArray, function(i, e) {
+        $(".products_single_item_img").eq(i).click(function() {
+            $(".display_box_sip").css("background-image", "url('./Images/products/" + productsArray[i].product_img + "')")
+            $(".display_box_sip>span").text(`${productsArray[i].product_name}`);
+        })
+    })
 
 
 
