@@ -559,7 +559,17 @@ $(document).ready(function() {
         $(`.news_product_title${i+1}`).text(`${e.news_name}`)
     })
 
-    //products dropdown click handle
+    $(".header_cont_right_side_menu_item:eq(3)").click(function() {
+            var clientindex = 0;
+            var interval = setInterval(function() {
+                $(`.clients_main_grid_item:eq(${clientindex})`).css({ transform: "translateX(0)", opacity: "1" })
+                clientindex++;
+                if (clientindex === clientsArray.length) {
+                    clearInterval(interval);
+                }
+            }, 200)
+        })
+        //products dropdown click handle
 
     //show text choose category(could be done in css but I like this way in this case)
     $(".products_dropdown").children().eq(0).css({ opacity: "1" });
@@ -830,7 +840,9 @@ $(document).ready(function() {
         $(".news_cont").eq(1).css({ transform: "translateX(0px)", opacity: "1" });
     }, 500)
 
-
+    $(".header_cont_right_side_menu_item1").click(function() {
+        $(".products_dropdown_pc_item:eq(0)").click();
+    })
 
     $(window).scroll(function() {
         var elementTop = $(".new_products_grid_cont").offset().top;

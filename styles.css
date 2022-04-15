@@ -1169,13 +1169,14 @@ body {
     color: var(--green);
 }
 
-main {
+
+/* main {
     display: none !important;
 }
 
 .products_main {
     display: block !important;
-}
+} */
 
 
 /* products page */
@@ -1598,6 +1599,9 @@ main {
     background-position: center;
     transition: filter 0.3s;
     cursor: pointer;
+    transform: translateX(150px);
+    opacity: 0;
+    transition: all 1.5s ease-in-out;
 }
 
 @media(min-width:1250px) {
@@ -2206,6 +2210,7 @@ main {
     right: 50px;
     top: 50px;
     cursor: pointer;
+    user-select: none;
 }
 
 .close_sip>i {
@@ -2227,4 +2232,5 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
+    user-select: none;
 }
