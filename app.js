@@ -501,8 +501,53 @@ $(document).ready(function() {
             $(".language_pc_ge, .language_mobile_ge").addClass("active_language");
             $.each(menuArray, function(i, e) {
                 $(".header_cont_right_side_menu_item" + i + "").text(`${e.menu_ge}`)
-                $(".menu_dropdown_item" + i + "").text(`${e.menu_ge}`)
+                $(`.footer_menu_item:eq(${i})`).text(`${e.menu_ge}`)
+                $(".menu_dropdown_item" + i + "").text(`${e.menu_ge}`);
             })
+            $(".newsTitle").text("სიახლეები");
+            $(".news_date_item:eq(1)").text("იან");
+            $(".news_date_item:eq(4)").text("დეკ");
+            $(".all_news").text("ყველა სიახლე");
+            $(".about_us_title").text("ჩვენს შესახებ");
+            $(".about_us_text_en").css("display", "none")
+            $(".about_us_text_ge").css("display", "block")
+            $(".about_us_button").text("სრულად")
+            $(".partners_title").text("პარტნიორები")
+            $(".new_products_title").text("ახალი პროდუქცია")
+            $(".new_products_grid_item_button").text("სრულად")
+            $(".new_products_cont_all_button").text("ყველა პროდუქტი")
+            $(".footer_address_en").css("display", "none");
+            $(".footer_address_ge").css("display", "block");
+            $(".footer_map_text").text("რუკაზე ნახვა")
+            $(".footer_copyright_text").text('© 2016 - 2022 შ.პ.ს. "Pine Tree". ყველა უფლება დაცულია.')
+            $(".pages_title").text("პროდუქცია")
+            $(".product_main_grid_item_button").text("სრულად")
+            $(".products_dropdown_pc_item_name:eq(0)").text("ყველა")
+            $(".products_dropdown_pc_item_name:eq(1)").text("ბავშვთა კვება")
+            $(".products_dropdown_pc_item_name:eq(2)").text("ბავშვის მოვლა")
+            $(".products_dropdown_pc_item_name:eq(3)").text("ტკბილეული")
+            $(".products_dropdown_pc_item_name:eq(4)").text("ჩაი")
+            $(".products_dropdown_pc_item_name:eq(5)").text("რძის ნაწარმი")
+            $(".products_dropdown_pc_item_name:eq(6)").text("საწმენდი საშუალებები")
+            $(".products_category_drop_name:eq(0)").text("წვენი")
+            $(".products_category_drop_name:eq(1)").text("ჩაი")
+            $(".products_category_drop_name:eq(2)").text("ფაფები")
+            $(".products_category_drop_name:eq(3)").text("ხილფაფები")
+            $(".products_category_drop_name:eq(4)").text("დესერტი")
+            $(".products_category_drop_name:eq(5)").text("სამკურნალო კვება")
+            $(".products_category_drop_name:eq(6)").text("რძის ფორმულა")
+            $(".products_category_drop_name:eq(7)").text("მოვლის საშუალება")
+            $(".products_category_drop_name:eq(8)").text("სველი ხელსახოცი")
+            $(".products_category_drop_name:eq(9)").text("საფენები")
+            $(".products_category_drop_name:eq(10)").text("ნუშის გოზინაყი")
+            $(".products_category_drop_name:eq(11)").text("შოკოლადი")
+            $(".products_category_drop_name:eq(12)").text("ორცხობილა")
+            $(".products_category_drop_name:eq(13)").text("გამაჯანსაღებელი")
+            $(".products_category_drop_name:eq(14)").text("პირამიდები")
+            $(".products_category_drop_name:eq(15)").text("დასაყენებელი რკინა")
+            $(".products_category_drop_name:eq(16)").text("დასაყენებელი მუყაო")
+            $(".products_category_drop_name:eq(17)").text("ინდივიდ. შეფუთვა")
+            $(".products_category_drop_name:eq(18)").text("ერთჯერადი")
         }, timeout)
     })
 
@@ -514,8 +559,35 @@ $(document).ready(function() {
             $(".language_pc_en, .language_mobile_en").addClass("active_language");
             $.each(menuArray, function(i, e) {
                 $(".header_cont_right_side_menu_item" + i + "").text(`${e.menu_en}`)
+                $(`.footer_menu_item:eq(${i})`).text(`${e.menu_en}`)
                 $(".menu_dropdown_item" + i + "").text(`${e.menu_en}`)
             })
+            $(".newsTitle").text("News & Offers");
+            $(".news_date_item:eq(1)").text("Jan");
+            $(".news_date_item:eq(4)").text("Dec");
+            $(".news_button").text("All News");
+            $(".all_news").text("All News");
+            $(".about_us_title").text("About Us");
+            $(".about_us_text_en").css("display", "block")
+            $(".about_us_text_ge").css("display", "none")
+            $(".about_us_button").text("Read More")
+            $(".partners_title").text("Partners")
+            $(".new_products_title").text("New Products")
+            $(".new_products_grid_item_button").text("View Product")
+            $(".new_products_cont_all_button").text("All Products");
+            $(".footer_address_en").css("display", "block");
+            $(".footer_address_ge").css("display", "none")
+            $(".footer_map_text").text("View On Map")
+            $(".footer_copyright_text").text('© 2016 - 2022 Ltd "Pine Tree". All rights reserved.')
+            $(".pages_title").text("Products")
+            $(".product_main_grid_item_button").text("View Product")
+            $(".products_dropdown_pc_item_name:eq(0)").text("All")
+            $(".products_dropdown_pc_item_name:eq(1)").text("Baby Food")
+            $(".products_dropdown_pc_item_name:eq(2)").text("Baby Care")
+            $(".products_dropdown_pc_item_name:eq(3)").text("Confectionary")
+            $(".products_dropdown_pc_item_name:eq(4)").text("Tea")
+            $(".products_dropdown_pc_item_name:eq(5)").text("Diary")
+            $(".products_dropdown_pc_item_name:eq(6)").text("Clening")
         }, timeout)
     })
 
@@ -559,17 +631,7 @@ $(document).ready(function() {
         $(`.news_product_title${i+1}`).text(`${e.news_name}`)
     })
 
-    $(".header_cont_right_side_menu_item:eq(3)").click(function() {
-            var clientindex = 0;
-            var interval = setInterval(function() {
-                $(`.clients_main_grid_item:eq(${clientindex})`).css({ transform: "translateX(0)", opacity: "1" })
-                clientindex++;
-                if (clientindex === clientsArray.length) {
-                    clearInterval(interval);
-                }
-            }, 200)
-        })
-        //products dropdown click handle
+    //products dropdown click handle
 
     //show text choose category(could be done in css but I like this way in this case)
     $(".products_dropdown").children().eq(0).css({ opacity: "1" });
@@ -671,8 +733,8 @@ $(document).ready(function() {
     $(".products_pages_indicators_item").click(function(ev) {
         reloadAnimation();
         setTimeout(function() {
-            $(".products_pages_indicators_item").removeClass("active_page");
-            $(ev.target).addClass("active_page");
+            $(".products_pages_indicators_item").removeClass("active_page_indicator");
+            $(ev.target).addClass("active_page_indicator");
             $(".product_main_grid_item").css("display", "none");
             var page = parseInt($(ev.target).text()) - 1;
             var index = page * 16;
@@ -1018,7 +1080,7 @@ $(document).ready(function() {
     });
 
     //click on single item will make dark bg visible 
-    $(".products_single_items_cont").click(() => {
+    $(".products_single_item_img").click(() => {
         if ($(window).width() >= 770) {
             $(".fixed_dark_bg_sip_cont").css({ visibility: "visible", opacity: "1" });
         }
@@ -1035,8 +1097,9 @@ $(document).ready(function() {
         })
     })
 
-
-
+    $(".footer_map_text, .footer_map_icon").click(function() {
+        $(".header_cont_right_side_menu_item").click();
+    })
 
 
 
