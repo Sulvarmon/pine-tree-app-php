@@ -407,8 +407,11 @@
     <main class="partners_main">
         <div class="pages_title">Partners</div>
         <div class="partners_content_cont">
-            <div class="partners_main_text">
+            <div class="partners_main_text partners_main_text_en">
                 Company <b> Pine Tree </b> is an exclusive importer and distributor of those brands within the Georgian territory and always trying to expand it's portfolio by the high quality products of world famous brands
+            </div>
+            <div style="display: none;" class="partners_main_text partners_main_text_ge">
+                კომპანია <b> ფაინ თრი </b> წარმოადგენს უმაღლესი ხარისხის ბრენდების ექსკლუზიურ იმპორტიორსა და დისტრიბუტორს, მთელი საქართველოს მასშტაბით და მუდმივად ცდილობს გაზარდოს პორთფელი მსოფლიოში ცნობილი ბრენდების მაღალხარისხიანი პროდუქციით
             </div>
             <div class="partners_main_grid"></div>
         </div>
@@ -505,18 +508,27 @@
                 <div>Georgia, Tbilisi D.Agmashenebeli Alley 12 km</div>
             </div>
             <form class="contacts_form_cont" action="/mail" method="POST" target="mail_iframe">
-                <div class="not_submit">Name: *</div>
+                <div class="not_submit not_submit_en">Name: <span>*</span> </div>
+                <div style="display: none;" class="not_submit not_submit_ge">სახელი: <span>*</span> </div>
                 <div class="not_submit"><input class="mail_form_input" type="text" name="name"></div>
-                <div class="not_submit">Mail: *</div>
+                <div class="not_submit not_submit_en">Mail: <span>*</span></div>
+                <div style="display: none;" class="not_submit not_submit_ge">ელ-ფოსტა: <span>*</span></div>
                 <div class="not_submit"><input class="mail_form_input" type="text" name="mail"></div>
-                <div class="not_submit">Message *</div>
+                <div class="not_submit not_submit_en">Message: <span>*</span></div>
+                <div style="display: none;" class="not_submit not_submit_ge">თქვენი წერილი: <span>*</span></div>
                 <div class="not_submit"><textarea class="mail_form_input" name="message" id="message" cols="30" rows="4"></textarea></div>
                 <div class="message_submit">Send</div>
-                <div class="not_submit" style="font-size: 12px">* Necessary fild</div>
+                <div class="not_submit not_submit_en" style="font-size: 12px"><span>*</span> Necessary fild</div>
+                <div style="display: none;" class="not_submit not_submit_ge" style="font-size: 12px"><span>*</span> აუცილებელი ველი</div>
             </form>
             <iframe name="mail_iframe" style="display: none;"></iframe>
         </div>
         <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1MyHyof6qVKvCtJFYqRnQYrGQUGSvj0gd" class="location_map"></iframe>
+    </main>
+
+    <main class="search_main">
+        <div class="pages_title">Search Results</div>
+        <div class="search_results_cont"></div>
     </main>
 
     <footer>
@@ -583,8 +595,9 @@
                 <div class="display_box_partners_item display_box_partners_item0">
                     <div class="display_box_partners_item_logo"></div>
                     <a href="#" target="_blank" class="display_box_partners_item_link"></a>
-                    <div class="display_box_partners_item_title">Humana</div>
-                    <div class="display_box_partners_item_text">
+                    <div class="display_box_partners_item_title partners_pop_up_en">Humana</div>
+                    <div style="display: none;" class="display_box_partners_item_title partners_pop_up_ge">ჰუმანა</div>
+                    <div class="display_box_partners_item_text partners_pop_up_en">
                         Humana has developed and produced high-quality baby food from first-class raw materials for 70 years. In this, we set great store by careful processing and the most stringent quality standards, so that your child gets everything it needs for a healthy
                         diet from the very start. In 1950 Humana introduced the first infant formula to approximate breastmilk most closely on the German market. Since this time we have developed our range continuously. Today we offer products that are
                         designed to be used with each other from the very first day until after the first year of life. From Herford all over the world In over 50 countries in Europe and beyond parents have relied on Humana baby formula from Herford for
@@ -592,51 +605,87 @@
                         by more than 11,000 active dairy farmers with 6.7 billion kilograms of milk. This is used to make, amongst other things, fresh dairy products such as milk, yoghurt and quark, cheese, milk-based ingredients for the food industry
                         as well as baby food and health products at 23 locations with the help of around 5,500 employees. With a turnover of around 4 billion Euro it is also one of the top ten companies in Europe in the dairy industry.
                     </div>
+                    <div style="display: none;" class="display_box_partners_item_text partners_pop_up_ge">
+                        უკვე 70 წელზე მეტია, რაც გერმანული კომპანია “ჰუმანა” საუკეთესო ნედლეულისგან მაღალი ხარისხის ბავშვთა საკვებს აწარმოებს. ამასთანავე ის, დიდ ყურადღებას აქცევს მაღალი ხარისხის სტანდარტების დაცვას, რათა თქვენმა პატარამ ჯანმრთელად იკვებოს. სწორედ ამის გამო
+                        “ჰუმანას” პროდუქციას მინიჭებული აქვს ევროკავშირის BIO ლოგო, ხოლო მის მიერ გამოყენებულ რძეს-გერმანიის ოფიციალური ხარისხის ნიშანი-“არაგენმოდიფიცირებული”. 1950 წელს ჰუმანამ გერმანულ ბაზარზე პირველად გამოიტანა დედის რძესთან მიხალოვებული
+                        ჩვილის საკვები. მას შემდეგ ჰუმანა მუდმივად აფართოვებს თავისი პროდუქციის ასორტიმეტს და დღესდღეობით ის გთავაზობთ ბავშვთა კვებას დაბადებიდან-ერთი წლის ზემოთ. ჰერფორდიდან მთელს მსოფლიოში 50-ზე მეტი ევროპის ქვეყანა და ევროპის გარეთ
+                        მშობლები წლების განმავლობაში ენდობიან ჰუმანას ბავშვთა კვებას ჰერფორდიდან. მის ინტერნაციონალურ გავრცელებას ხელს უწყობენ საკუთარი შვილობილი კომპანიები იტალიაში, ესპანეთსა და პორტუგალიაში, ასვე მრავალწლიანი დისტრიბუტორი პარტნიორები.
+                        “ჰუმანა GmbH” ჰერფორდში არის DMK Deutsches Milchkontor GmbH –ს შვილობილი კომპანია, შემოკლებით DMK სადაც გაწევრიანებულია 11.000 რძის მწარმოებელი 6,7 კგ. რძით. ამ რძის გადამუშავება ხდება 5.500 მოშაკის მიერ 23 ადგილას და მიიღება რძის
+                        ახალი პროდუქცია, როგორიც არის რძე, იოგურტი და ხაჭო, ყველი, რძის შემცველი ბავშვთა საკვები, ნაყინი და ჯანმრთელი პროდუქცია. 4 მილიარდიანი ევრო ბრუნვით საწარმო შედის ევროპის მაშტაბით რძის ინდუსტრიის პირველ ათეულში.
+                    </div>
                 </div>
                 <div class="display_box_partners_item display_box_partners_item1">
                     <div class="display_box_partners_item_logo"></div>
                     <a href="#" target="_blank" class="display_box_partners_item_link"></a>
-                    <div class="display_box_partners_item_title">Guylian</div>
-                    <div class="display_box_partners_item_text">
+                    <div class="display_box_partners_item_title partners_pop_up_en">Guylian</div>
+                    <div style="display: none;" class="display_box_partners_item_title partners_pop_up_ge">გილიანი</div>
+                    <div class="display_box_partners_item_text partners_pop_up_en">
                         As one of the top-ten best-selling boxed chocolate brands, Guylian chocolates are sold in over 120 countries across Europe, Asia, Australia and America, and are available in countless retailers across the World, including supermarkets, hypermarkets, department
                         stores, specialty food stores, petrol stations, not to mention online and at the Guylian Belgian Chocolate Cafés. You might also discover the exclusive travellers’ range at speciality travel stores and duty-free shops. All Guylian
                         chocolates are produced in Sint-Niklaas, Belgium, where Guylian Master Chocolatiers produce up to 75 tonnes of chocolate daily in a production area measuring 27.000 m². This allows the Guylian group a worldwide non-consolidated
                         turnover of 80 million euros (2015). In turn, this ensures that Guylian is one of Belgium’s leading chocolate manufacturers, with a team of 250 employees and sales oﬃces in the UK, Germany/Austria, Spain/Portugal and the USA. In
                         June 2008 Guylian was acquired by Lotte Confectionary Co, Ltd, subsidiairy of the publicly listed Lotte Group, the 5th largest economic group in South Korea.
                     </div>
+                    <div style="display: none;" class="display_box_partners_item_text partners_pop_up_ge">
+                        როგორც ერთერთი საუკეთესო გაყიდვადი შოკოლადის ბრენდი, გილიანის შოკოლადები იყიდება მსოფლიოს 120 ქვეყანაზე მეტში. გილიანის შოკოლადი შეგიძლიათ შეიძინოთ ევროპის, აზიის, ავსტრალიის, ამერიკის, სხვადასხვა ჰიპერმარკეტებში, სუპერმარკეტებში, მაღაზიებში, სპეციალურ
+                        საჭმლის მაღაზიებში, ბენზინგასამართ სადგურებზე, პროდუქციის შეძენა შესაძლებელია ინტერნეტით, ასევე გილიანის კაფეში. ყველა გილიანის პროდუქტი დამზადებულია ბელგიაში, სადაც 27 000 კვ.მ ზე დღიურად მზადდება 75 ტონამდე შოკოლადი, ეს ყველაფერი
+                        აძლევს საშუალებას გილიანს შექმნას 80 მილიონიანი წლიური ბრუნვა. გილიანი არის ერთ-ერთი წამყვანი ბელგიური შოკოლადის მწარმოებელი, 250 კაციანი თანამშრომლების გუნდით, გაყიდვების ოფისებით ბრიტანეთში, გერმანიაში, ავსტრიაში, ესპანეთში,
+                        პორტუგალიაში და ამერიკაში. 2008 წლის ივნისში გილიანი შეიძინა Lotte Confectionary Co - მ, სიდიდით მეხუთე ეკონომიკურმა ჯგუფმა სამხრეთ კორეაში.
+                    </div>
                 </div>
                 <div class="display_box_partners_item display_box_partners_item2">
                     <div class="display_box_partners_item_logo"></div>
                     <a href="#" target="_blank" class="display_box_partners_item_link"></a>
-                    <div class="display_box_partners_item_title">Bahlsen</div>
-                    <div class="display_box_partners_item_text">
+                    <div class="display_box_partners_item_title partners_pop_up_en">Bahlsen</div>
+                    <div style="display: none;" class="display_box_partners_item_title partners_pop_up_ge">ბალსენი</div>
+                    <div class="display_box_partners_item_text partners_pop_up_en">
                         Bahlsen’s baked goods stand for enjoyment and love of life. For gener­a­tions – more than 125 years now – the sweet pleasure of biscuits has been asso­ci­ated with the Bahlsen name. The unmis­tak­able taste, the consis­tently high quality and trust in
                         the product have made Bahlsen what it is today: a successful and modern family company. We are one of the largest family-run biscuit enterprises in the world. By 1891 the company’s most famous product, Leibniz Cakes (keks), is
                         introduced onto the market. As it is common practice to name food products after public figures, Hermann Bahlsen names his cake after Hanover’s well-known inhabitant: Gottfried Wilhelm Leibniz (1646-1716). Today Bahlsen produces
                         wide range of biscuits and satisfies demand of wide audience, with unique taste and high quality, proven by time. Bahlsen today produces its branded products at 5 sites in Europe and exports its products to over 80 countries. With
                         a labor force of nearly 2,500 worldwide, the company’s annual turnover is in excess of £400 million. The company owes this strong position to a history going back more than 125 years.
                     </div>
+                    <div style="display: none;" class="display_box_partners_item_text partners_pop_up_ge">
+                        ბალსენის პროდუქცია შექმნილია სიამოვნებაზე და ცხოვრების სიყვარულზე. 125 წლის განმავლობაში, სხვადასხვა თაობებისთვის ტკბილეული ასოცირდებოდა ბალსენთან. შეუდარებელმა გემომ, ყოველთვის მაღალმა ხარისხმა და ნდობამ მოიყვანა ბალსენი დღევანდელობამდე ისეთი სახით როგორიც
+                        არის: წარმატებული და თანამედროვე საოჯახო კომპანია. 1891 წელს, კომპანიამ გამოუშვა ყველაზე ცნობილი პროდუქტი, ლაიბნიცის კექსი. როგორც იმ დროისთვის მიღებული იყო, პროდუქტს სახელი დაერქვა ცნობილი საზოგადო მოღვაწის: ვილჰელმ ლაიბნიცის
+                        საპატივცემულოდ. დღესდღეისობით ბალსენი აწარმოებს ტკბილეულობის ფართო ასორტიმენტს და აკმაყოფილებს ფართო სეგმენტის მოთხოვნილებებს, უნიკალური გემოთი რომელიც დრომ გამოსცადა. ბალსენი დღეს აწარმოებს თავის ბრენდულ პროდუქტს ევროპის 5 ქვეყანაში,
+                        ხოლო ექსპორტზე გააქვს 80 ქვეყანაზე მეტში. დაახლოებით 2500 თანამშრომლით, მსოფლიოში, კომპანიის წლიური ბრუნვა 400 მილიონ ფუნტზე მეტია. 125 წელზე მეტი ხნის განმავლობაში, კომპანია ინარჩუნებს ამ პოზიციას.
+                    </div>
                 </div>
                 <div class="display_box_partners_item display_box_partners_item3">
                     <div class="display_box_partners_item_logo"></div>
                     <a href="#" target="_blank" class="display_box_partners_item_link"></a>
-                    <div class="display_box_partners_item_title">Hyson</div>
-                    <div class="display_box_partners_item_text">
+                    <div class="display_box_partners_item_title partners_pop_up_en">Hyson</div>
+                    <div style="display: none;" class="display_box_partners_item_title partners_pop_up_en">ჰაისონი</div>
+                    <div class="display_box_partners_item_text partners_pop_up_en">
                         The tiny island of Sri Lanka is one of the largest tea producers, contributing to 11% of the world’s tea production. Ceylon tea is famous its natural aroma, high quality and golden hue. It was a Scotsman named James Taylor who introduced tea cultivation
                         to the island in 1867. Today tea thrives in the sloping terrains of the inland mountainous regions, where plucking is done manually to ensure that only two leaves and an open bud is added to the collection. The island produces
                         three categories of tea, low, medium and high grown, according to the elevation and is sub divided into seven agro climatic districts. Hyson tea concept is following: we strongly believe that gains are not measured by metric tons
                         or profits alone but by the lives. HYSON proudly offers a countless amount of blends, carefully selected to reflect the tastes of tea lovers. All blends are exclusively crafted by our Tea Masters and the secret of each recipe is
                         carefully guarded. By blending essences, fruits,flowers and spices with different varieties of tea, HYSON constantly innovates in order to to take the world of tea by surprise.
                     </div>
+                    <div style="display: none;" class="display_box_partners_item_text partners_pop_up_ge">
+                        შრი ლანკის კუნძული წარმოადგენს მსოფლიოში ერთ-ერთ ყველაზე დიდ ჩაის მწარმოებელ ადგილს, ჩაის პროდუქციის 11% მზადდება შრი ლანკაში. ცეილონის ჩაი ცნობილია თავისი ნატურალური არომატით, მაღალი ხარისხით და ოქროსფერი ელფერით. შოტლანდიელმა მეზღვაურმა, ჯეიმს ტეილორმა
+                        1867 წელს პირველად დაიწყო ჩაის მოყვანა ამ კუნძულზე. დღესდღეისობით ჩაის პლანტაციები გაშენებულია ამაღლებულ მთიან ადგილებზე, სადაც ჩაის კრეფა ხდება ხელით, იმისთვის რომ მხოლოდ რჩეული ფოთლები იქნეს მოკრეფილი. კუნძული აწარმოებს ჩაის
+                        სამ კატეგორიას, დაბალი საშუალო და მაღალი, იმის მიხედვით თუ რა გეოგრაფიულ ადგილას არის პლანტაცია გაშენებული. ჰაისონის ჩაის კონცეფცია შემდეგნაირია: ჩვენ გვჯერა რომ სიდიდე არ განისაზღვრება ტონებით, ან შემოსავლით, არამედ ჩაის ფოთლებით.
+                        ჰაისონი თავის მომხმარებელს სთავაზობს ნაზავების ფართო ასორტიმენტს, დაკვირვებით ამორჩეულ ჩაის ფოთლებს, იმისთვის რომ დააკმაყოფილონ ჩაის მოყვარულების მოთხოვნები. ყველა ნაზავი ექსკლუზიურად მზადდება ჩაის სპეციალისტების მიერ საიდუმლო
+                        რეცეპტით რომელიც კარგად არის დაცული. ჰაისონი ყოველთვის ანახლებს თავის პროდუქციას იმისთვის რომ დააკმაყოფილოს ჩაის მოყვარულები.
+                    </div>
                 </div>
                 <div class="display_box_partners_item display_box_partners_item4">
                     <div class="display_box_partners_item_logo"></div>
                     <a href="#" target="_blank" class="display_box_partners_item_link"></a>
-                    <div class="display_box_partners_item_title">komili</div>
-                    <div class="display_box_partners_item_text">
+                    <div class="display_box_partners_item_title partners_pop_up_en">komili</div>
+                    <div style="display: none;" class="display_box_partners_item_title partners_pop_up_ge">კომილი</div>
+                    <div class="display_box_partners_item_text partners_pop_up_en">
                         The story of Komili began in Midilli Island in 1878. Hasan Komi'in, started producing lamp oil and soaps, and the story of one of the most strong brand begins here. In these years when the concept of brand has not even been mentioned, Hasan Komili has
                         set out by providing high quality product and have laid the seeds of the Comic brand that will last for generations. With high quality and strong communication with customer, Komili has gained big awareness throughout years. Komili
                         products are hypo allergic and none of them includes Paraben
+                    </div>
+                    <div style="display: none;" class="display_box_partners_item_text partners_pop_up_ge">
+                        კომილის ისტორია დაიწყო მიდილის კუნძულზე 1878 წელს, სადაც ჰასან კომილიმ დაიწყო ზეითუნის ზეთის და საპნის წარმოება და ჩაუყარა საფუძველი თურქეთის ერთ-ერთ ყველაზე ძლიერ ბრენდს. ამ წლებში, როცა ბრენდის კონცეფცია საერთოდ არ არსებობდა, ჰასან კომილიმ აქცენტი გააკეთა
+                        პროდუქტის ხარისხზე და ჩამოაყალიბა ძლიერი ბრენდის კონცეფცია რომელიც თაობებს გაუძლებდა. მაღალი ხარისხით და მომხმარებელთან აქტიური კომუნიკაციით, კომილიმ წლების განმავლობაში მოიპოვა აღიარება. კომილის პროდუქცია ჰიპოალერგიულია, არცერთი
+                        პროდუქტი არ შეიცავს ქიმიურ დანამატ - პარაბენს.
                     </div>
                 </div>
             </div>
@@ -654,6 +703,18 @@
         </div>
         <div class="close_sip"> <i class="material-icons">close</i> </div>
     </div>
+
+    <div class="fixed_dark_bg_search_cont">
+        <div class="dark_bg_search">
+
+        </div>
+        <div class="display_box_search">
+            <div><input type="text" class="search_input" placeholder="search"></div>
+            <div class="display_box_search_icon"><i class="material-icons">search</i></div>
+            <div class="close_search"> <i class="material-icons">close</i> </div>
+        </div>
+    </div>
+
 
     <div class="reload_animation"></div>
 </body>

@@ -1881,6 +1881,10 @@ body {
     color: var(--grey2);
 }
 
+.not_submit>span {
+    font-size: 25px;
+}
+
 .mail_form_input {
     width: 100%;
     border: 0;
@@ -1979,11 +1983,29 @@ body {
     bottom: 0;
     right: 0;
     margin: auto;
-    width: 300px;
+    width: var(--mobile);
     height: 400px;
     background-color: #fff;
     border-radius: 5px;
     padding: 10px;
+}
+
+@media(min-width:770px) {
+    .display_box_partners {
+        width: var(--medium);
+    }
+}
+
+@media(min-width:1024px) {
+    .display_box_partners {
+        width: var(--large);
+    }
+}
+
+@media(min-width:1250px) {
+    .display_box_partners {
+        width: var(--extraLarge);
+    }
 }
 
 .display_box_partners_inner {
@@ -2072,6 +2094,9 @@ body {
 
 .no_info {
     display: none;
+    width: fit-content;
+    margin: auto;
+    font-size: 18px;
 }
 
 .products_single_items_cont {
@@ -2243,4 +2268,95 @@ body {
     align-items: center;
     justify-content: center;
     user-select: none;
+}
+
+.fixed_dark_bg_search_cont {
+    visibility: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+    z-index: 600;
+}
+
+.dark_bg_search {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: #000;
+}
+
+.display_box_search {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    width: fit-content;
+    height: fit-content;
+    padding: 10px;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 5px;
+}
+
+.search_input {
+    border: 0;
+    border-bottom: 1px solid var(--grey);
+    font-size: 18px;
+}
+
+.display_box_search_icon {
+    cursor: pointer;
+}
+
+.display_box_search_icon>i {
+    font-size: 25px;
+}
+
+.close_search {
+    width: 35px;
+    height: 35px;
+    background-color: #fff;
+    border-radius: 50%;
+    color: var(--green);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform: translate(50%, -50%);
+    cursor: pointer;
+}
+
+.close_search>i {
+    font-size: 35px;
+}
+
+.search_results_cont {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.search_results_item {
+    width: fit-content;
+    color: var(--green);
+    cursor: pointer;
+}
+
+.search_results_item:hover {
+    text-decoration: underline;
 }

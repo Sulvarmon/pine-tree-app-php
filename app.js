@@ -1,7 +1,7 @@
 $(document).ready(function() {
     //variables
     var headerImages = ["url('./images/bg_img_1.jpg')", "url('./images/bg_img_2.jpg')", "url('./images/bg_img_3.jpg')", "url('./images/bg_img_4.jpg')", ];
-    var pages = ["home_main", "products_main", "partners_main", "clients_main", "news_main", "about_main", "contacts_main"];
+    var pages = ["home_main", "products_main", "partners_main", "clients_main", "news_main", "about_main", "contacts_main", "search_main"];
     var includes = ["include (1).png", "include (2).png", "include (3).png", "include (4).png", "include (5).png", "include (6).png"];
     var partners = ["partner1.png", "partner2.png", "partner3.png", "partner4.png", "partner5.png"]
     var headerCrsCurrentItem = 1;
@@ -493,6 +493,7 @@ $(document).ready(function() {
         }
     }, 1800)
 
+    //change language to georgian
     $(".language_pc_ge, .language_mobile_ge").click(function() {
         reloadAnimation();
         menuDropdownSlideUp();
@@ -520,7 +521,13 @@ $(document).ready(function() {
             $(".footer_address_ge").css("display", "block");
             $(".footer_map_text").text("რუკაზე ნახვა")
             $(".footer_copyright_text").text('© 2016 - 2022 შ.პ.ს. "Pine Tree". ყველა უფლება დაცულია.')
-            $(".pages_title").text("პროდუქცია")
+            $(".pages_title:eq(0)").text("პროდუქცია")
+            $(".pages_title:eq(1)").text("მსგავსი პროდუქტები");
+            $(".pages_title:eq(2)").text("პარტნიორები")
+            $(".pages_title:eq(3)").text("ჩვენი კლიენტები")
+            $(".pages_title:eq(4)").text("სიახლეები")
+            $(".pages_title:eq(5)").text("ჩვენს შესახებ")
+            $(".pages_title:eq(6)").text("კონტაქტი")
             $(".product_main_grid_item_button").text("სრულად")
             $(".products_dropdown_pc_item_name:eq(0)").text("ყველა")
             $(".products_dropdown_pc_item_name:eq(1)").text("ბავშვთა კვება")
@@ -548,9 +555,26 @@ $(document).ready(function() {
             $(".products_category_drop_name:eq(16)").text("დასაყენებელი მუყაო")
             $(".products_category_drop_name:eq(17)").text("ინდივიდ. შეფუთვა")
             $(".products_category_drop_name:eq(18)").text("ერთჯერადი")
+            $(".partners_main_text_en").css("display", "none")
+            $(".partners_main_text_ge").css("display", "block")
+            $(".link_about_text_cont_en").css("display", "none")
+            $(".link_about_text_cont_ge").css("display", "block")
+            $(".contacts_left_cont").children().eq(0).text("ფაინ თრი გრუპი")
+            $(".contacts_left_email_en").css("display", "none")
+            $(".contacts_left_email_ge").css("display", "block")
+            $(".contacts_left_cont").children().eq(3).text("ტელეფონი: +995 (032) 2 38 93 80")
+            $(".contacts_left_cont").children().eq(4).text("მისამართი: საქრთველო, თბილისი, აღმაშენებლის ხეივანი 12 კმ.")
+            $(".not_submit_en").css("display", "none");
+            $(".not_submit_ge").css("display", "block");
+            $(".message_submit").text("გაგზავნა")
+            $(".partners_pop_up_en").css("display", "none");
+            $(".partners_pop_up_ge").css("display", "block");
+            $(".news_date_item:eq(7)").text("იან")
+            $(".news_date_item:eq(10)").text("დეკ")
         }, timeout)
     })
 
+    //change language to english
     $(".language_pc_en, .language_mobile_en").click(function() {
         reloadAnimation();
         menuDropdownSlideUp();
@@ -579,7 +603,13 @@ $(document).ready(function() {
             $(".footer_address_ge").css("display", "none")
             $(".footer_map_text").text("View On Map")
             $(".footer_copyright_text").text('© 2016 - 2022 Ltd "Pine Tree". All rights reserved.')
-            $(".pages_title").text("Products")
+            $(".pages_title:eq(0)").text("Products")
+            $(".pages_title:eq(1)").text("Similar products");
+            $(".pages_title:eq(2)").text("Partners")
+            $(".pages_title:eq(3)").text("Clients")
+            $(".pages_title:eq(4)").text("News")
+            $(".pages_title:eq(5)").text("About Us")
+            $(".pages_title:eq(6)").text("Contacts")
             $(".product_main_grid_item_button").text("View Product")
             $(".products_dropdown_pc_item_name:eq(0)").text("All")
             $(".products_dropdown_pc_item_name:eq(1)").text("Baby Food")
@@ -588,6 +618,20 @@ $(document).ready(function() {
             $(".products_dropdown_pc_item_name:eq(4)").text("Tea")
             $(".products_dropdown_pc_item_name:eq(5)").text("Diary")
             $(".products_dropdown_pc_item_name:eq(6)").text("Clening")
+            $(".partners_main_text_en").css("display", "block")
+            $(".partners_main_text_ge").css("display", "none")
+            $(".link_about_text_cont_en").css("display", "block")
+            $(".link_about_text_cont_ge").css("display", "none")
+            $(".contacts_left_cont").children().eq(0).text("Pine Tree Group")
+            $(".contacts_left_email_en").css("display", "block")
+            $(".contacts_left_email_ge").css("display", "none")
+            $(".contacts_left_cont").children().eq(3).text("Phone: +995 (032) 2 38 93 80")
+            $(".contacts_left_cont").children().eq(4).text("Georgia, Tbilisi D.Agmashenebeli Alley 12 km")
+            $(".not_submit_en").css("display", "block");
+            $(".not_submit_ge").css("display", "none");
+            $(".message_submit").text("Send")
+            $(".news_date_item:eq(7)").text("Jan");
+            $(".news_date_item:eq(10)").text("Dec");
         }, timeout)
     })
 
@@ -624,6 +668,24 @@ $(document).ready(function() {
 
     //contacts page click
     handlePageClicks(6);
+
+    $(".logo").click(function() {
+        $(".product_main_grid_item0").click()
+    })
+
+
+    $(".search_icon").click(() => {
+        $(".fixed_dark_bg_search_cont").css({
+            visibility: "visible",
+            opacity: "1"
+        });
+    });
+    $(".dark_bg_search, .close_search").click(() => {
+        $(".fixed_dark_bg_search_cont").css({
+            visibility: "hidden",
+            opacity: "0"
+        });
+    });
 
     //news(home page)
     $.each(newsArray, function(i, e) {
@@ -756,7 +818,6 @@ $(document).ready(function() {
         $(".display_box_partners_item_logo").eq(i).css("background-image", "url('./Images/" + e.partner_img + "')");
         $(".display_box_partners_item_link").eq(i).text(`${e.partner_link}`);
         $(".display_box_partners_item_link").eq(i).attr("href", `${e.partner_link}`)
-        $(".display_box_partners_item_title").eq(i).text(`${e.partner_name}`);
     })
 
 
@@ -901,10 +962,6 @@ $(document).ready(function() {
     setTimeout(function() {
         $(".news_cont").eq(1).css({ transform: "translateX(0px)", opacity: "1" });
     }, 500)
-
-    $(".header_cont_right_side_menu_item1").click(function() {
-        $(".products_dropdown_pc_item:eq(0)").click();
-    })
 
     $(window).scroll(function() {
         var elementTop = $(".new_products_grid_cont").offset().top;
@@ -1098,12 +1155,38 @@ $(document).ready(function() {
     })
 
     $(".footer_map_text, .footer_map_icon").click(function() {
-        $(".header_cont_right_side_menu_item").click();
+        $(".header_cont_right_side_menu_item:eq(6)").click();
     })
 
-
-
-
+    //search page click
+    $(".display_box_search_icon").click(function() {
+        winScr();
+        $(".header_cont_right_side_menu_item, .menu_dropdown_item, .footer_menu_item").removeClass("active_page");
+        $.each(pages, function(i, e) {
+            $(`.${e}`).css("display", "none");
+        })
+        $(".fixed_dark_bg_search_cont").css({
+            visibility: "hidden",
+            opacity: "0"
+        });
+        $(`.${pages[7]}`).css("display", "block");
+        menuDropdownSlideUp();
+        $(".search_results_item").remove();
+        $(".search_results_enter_a_word").remove();
+        var searchText = $(".search_input").val();
+        if (searchText === "") {
+            $(".search_results_cont").append("<div class='search_results_enter_a_word'>Enter A Word</div>")
+        } else {
+            $.each(productsArray, (i, e) => {
+                if (e.product_name.match(new RegExp(searchText, "i")) !== null) {
+                    $('.search_results_cont').append('<div class="search_results_item">' + e.product_name + '</div>')
+                }
+            })
+            $(".search_results_item").click(function() {
+                console.log("asdjhg")
+            })
+        }
+    })
 
 
 
