@@ -2,6 +2,13 @@ $(document).ready(function() {
     //variables
     var headerImages = ["url('./images/bg_img_1.jpg')", "url('./images/bg_img_2.jpg')", "url('./images/bg_img_3.jpg')", "url('./images/bg_img_4.jpg')", ];
     var pages = ["home_main", "products_main", "partners_main", "clients_main", "news_main", "about_main", "contacts_main", "search_main"];
+    var clientsLinsArray = ["https://www.facebook.com/agrohubge", "http://nikorasupermarket.ge/ge/%E1%83%9B%E1%83%97%E1%83%90%E1%83%95%E1%83%90%E1%83%A0%E1%83%98",
+        "https://evex.ge/en/", "http://www.neopharmi.ge/index.php", "https://www.facebook.com/pharmsaxli/",
+        "#", "http://pharmadepot.ge/", "https://www.aversi.ge/en/", "https://www.gpc.ge/", "https://psp.ge/new/",
+        "http://rompetrol.ge/en", "http://carrefour.com.ge/default.aspx?langauge=en&country=ge",
+        "https://europroduct.ge/", "http://gulf.ge/en/products-and-services/gulf_store", "http://pinetree.ge/english/www.smart.ge",
+        "#", "#", "#"
+    ];
     var includes = ["include (1).png", "include (2).png", "include (3).png", "include (4).png", "include (5).png", "include (6).png"];
     var partners = ["partner1.png", "partner2.png", "partner3.png", "partner4.png", "partner5.png"]
     var headerCrsCurrentItem = 1;
@@ -29,6 +36,7 @@ $(document).ready(function() {
         "url('./images/about_us_5.jpg')"
     ]
     var aboutItemIndex = 0;
+    var searchState = false
 
     //functions
     function winScr() {
@@ -131,13 +139,14 @@ $(document).ready(function() {
             } else {
                 $(".no_info").css("display", "none");
             }
+            $(".products_pages_indicators_item").removeClass("active_page_indicator");
+            $(".products_pages_indicators_item:eq(0)").addClass("active_page_indicator");
             $(".products_arrow_expand_item, .products_category_drop_name, .products_dropdown_pc_item_name, .products_dropdown_block_line_text").removeClass("active_page");
             $(".products_dropdown_pc_item_name").eq(index).addClass("active_page");
             $(".products_dropdown_block_line_text").eq(index - 1).addClass("active_page");
             if (index === 0) {
                 $(".products_dropdown_block_line_text, .products_pages_indicators_item").removeClass("active_page")
                 $(".products_pages_indicators").css("display", "flex");
-                $(".products_pages_indicators_item").eq(index).addClass("active_page");
                 $(".product_main_grid_item").css("display", "none");
                 for (var i = 0; i < 16; i++) {
                     $(`.product_main_grid_item${i}`).css("display", "flex");
@@ -171,8 +180,8 @@ $(document).ready(function() {
             $(".products_dropdown_pc_item_name").removeClass("active_page");
             $(".products_dropdown_pc_item_name").eq(index + 1).addClass("active_page");
             $(".products_pages_indicators").css("display", "none")
-            $(".products_pages_indicators_item").removeClass("active_page");
-            $(".products_pages_indicators_item").eq(index).addClass("active_page");
+            $(".products_pages_indicators_item").removeClass("active_page_indicator");
+            $(".products_pages_indicators_item:eq(0)").addClass("active_page_indicator");
             $(".product_main_grid_item").css("display", "none");
             $.each(productsArray, function(i, e) {
                 if (e.product_category === category) {
@@ -226,6 +235,7 @@ $(document).ready(function() {
         reloadAnimation();
         setTimeout(function() {
             winScr()
+            handlePageClicks(1)
             $(".product_main_grid_item, .products_pages_indicators, .products_single_item_img, .products_single_item_name").css("display", "none");
             $(`.similar_items_wrapper, .products_single_item_img:eq(${index}), .products_single_item_name:eq(${index})`).css("display", "flex");
             $(".products_dropdown_block_line_text, .products_arrow_expand_item, .products_dropdown_pc_item_name, .products_category_drop_name").removeClass("active_page");
@@ -315,12 +325,6 @@ $(document).ready(function() {
         }, timeout)
     }
 
-    function productsSingleItemClickTrigger(index) {
-        $(`.product_main_grid_item:eq(${index})`).click(function() {
-            productsSingleItemClick(index, `${productsArray[index].product_name}`, `${productsArray[index].product_subcategory}`, `${productsArray[index].product_category}`);
-        })
-    }
-
     //scroll window to top after refresh
     $(window).on('beforeunload', function() {
         winScr()
@@ -379,7 +383,7 @@ $(document).ready(function() {
 
     //give new products image and name (home page)
     $.each(productsArray, function(i, e) {
-        $(`.new_products_grid_item_img${i+1}`).css('background-image', "url('./Images/products/" + e.product_img.replace("big", "") + "')")
+        $(`.new_products_grid_item_img${i+1}`).css('background-image', "url('./images/products/" + e.product_img.replace("big", "") + "')")
         $(`.new_products_grid_item_name${i+1}`).text(`${e.product_name}`)
         if (i === 3) {
             return false
@@ -394,7 +398,7 @@ $(document).ready(function() {
 
     //give background image to each partners carousel item(home page)
     $.each(partnersArray, function(i, e) {
-        $(`.partners_carousel_cont_item${i}`).css('background-image', "url('./Images/" + e.partner_img + "')")
+        $(`.partners_carousel_cont_item${i}`).css('background-image', "url('./images/" + e.partner_img + "')")
     })
 
     // partners carousel
@@ -528,6 +532,7 @@ $(document).ready(function() {
             $(".pages_title:eq(4)").text("სიახლეები")
             $(".pages_title:eq(5)").text("ჩვენს შესახებ")
             $(".pages_title:eq(6)").text("კონტაქტი")
+            $(".pages_title:eq(7)").text("ძიების შედეგები")
             $(".product_main_grid_item_button").text("სრულად")
             $(".products_dropdown_pc_item_name:eq(0)").text("ყველა")
             $(".products_dropdown_pc_item_name:eq(1)").text("ბავშვთა კვება")
@@ -571,6 +576,8 @@ $(document).ready(function() {
             $(".partners_pop_up_ge").css("display", "block");
             $(".news_date_item:eq(7)").text("იან")
             $(".news_date_item:eq(10)").text("დეკ")
+            $(".search_results_no_info").text("მონაცემები ვერ მოიძებნა")
+            $(".search_results_enter_a_word").text("შეიყვანეთ საძიებო სიტყვა")
         }, timeout)
     })
 
@@ -610,6 +617,7 @@ $(document).ready(function() {
             $(".pages_title:eq(4)").text("News")
             $(".pages_title:eq(5)").text("About Us")
             $(".pages_title:eq(6)").text("Contacts")
+            $(".pages_title:eq(7)").text("Search Results")
             $(".product_main_grid_item_button").text("View Product")
             $(".products_dropdown_pc_item_name:eq(0)").text("All")
             $(".products_dropdown_pc_item_name:eq(1)").text("Baby Food")
@@ -632,6 +640,8 @@ $(document).ready(function() {
             $(".message_submit").text("Send")
             $(".news_date_item:eq(7)").text("Jan");
             $(".news_date_item:eq(10)").text("Dec");
+            $(".search_results_no_info").text("Information is not found")
+            $(".search_results_enter_a_word").text("Enter A Word")
         }, timeout)
     })
 
@@ -689,7 +699,7 @@ $(document).ready(function() {
 
     //news(home page)
     $.each(newsArray, function(i, e) {
-        $(`.news_img_cont${i+1}`).css('background-image', "url('./Images/" + e.news_url + "')");
+        $(`.news_img_cont${i+1}`).css('background-image', "url('./images/" + e.news_url + "')");
         $(`.news_product_title${i+1}`).text(`${e.news_name}`)
     })
 
@@ -749,7 +759,7 @@ $(document).ready(function() {
 
     //give products dropdown category menu icons bg image
     $.each(productsDropPcIcons, function(i, e) {
-        $(".products_category_drop_icon").eq(i).css("background-image", "url('./Images/" + e + "')");
+        $(".products_category_drop_icon").eq(i).css("background-image", "url('./images/" + e + "')");
     })
 
     //products navigation dropdown on hover 
@@ -778,7 +788,7 @@ $(document).ready(function() {
     $.each(productsArray, function(i, e) {
         $(".product_main_grid").append("<div class='product_main_grid_item product_main_grid_item" + i + "'></div>");
         $(".product_main_grid_item" + i + "").append("<div class='product_main_grid_item_img product_main_grid_item_img" + i + "'></div>");
-        $(".product_main_grid_item_img" + i + "").css("background-image", "url('./Images/products/" + e.product_img.replace("big", "") + "')")
+        $(".product_main_grid_item_img" + i + "").css("background-image", "url('./images/products/" + e.product_img.replace("big", "") + "')")
         $(".product_main_grid_item" + i + "").append("<div class='product_main_grid_item_name product_main_grid_item_name" + i + "'>" + e.product_name + "</div>");
         $(".product_main_grid_item" + i + "").append("<div class='product_main_grid_item_button product_main_grid_item_button" + i + "'>View Product</div>");
     })
@@ -810,12 +820,12 @@ $(document).ready(function() {
     //append partners grid items
     $.each(partnersArray, function(i, e) {
         $(".partners_main_grid").append("<div class='partners_main_grid_item partners_main_grid_item" + i + "'></div>")
-        $(`.partners_main_grid_item${i}`).css("background-image", "url('./Images/" + e.partner_img + "')");
+        $(`.partners_main_grid_item${i}`).css("background-image", "url('./images/" + e.partner_img + "')");
     })
 
     //give display_box_partners_items childrens logo title and link from database
     $.each(partnersArray, function(i, e) {
-        $(".display_box_partners_item_logo").eq(i).css("background-image", "url('./Images/" + e.partner_img + "')");
+        $(".display_box_partners_item_logo").eq(i).css("background-image", "url('./images/" + e.partner_img + "')");
         $(".display_box_partners_item_link").eq(i).text(`${e.partner_link}`);
         $(".display_box_partners_item_link").eq(i).attr("href", `${e.partner_link}`)
     })
@@ -849,8 +859,13 @@ $(document).ready(function() {
 
     // append clients main grid 
     $.each(clientsArray, function(i, e) {
-        $(".clients_main_grid").append("<div class='clients_main_grid_item clients_main_grid_item" + i + "'></div>")
-        $(".clients_main_grid_item" + i + "").css("background-image", "url('./Images/" + e.client_img + "')")
+        $(".clients_main_grid").append("<a href='#' target='_blank' class='clients_main_grid_item clients_main_grid_item" + i + "'></a>")
+        $(".clients_main_grid_item" + i + "").css("background-image", "url('./images/" + e.client_img + "')")
+    })
+
+    //add href to clients
+    $.each(clientsLinsArray, function(i, e) {
+        $(`.clients_main_grid_item:eq(${i})`).attr("href", e)
     })
 
     //about page js
@@ -937,10 +952,8 @@ $(document).ready(function() {
     })
 
     /**home page button clicks */
-    $(".all_news").click(function() {
-        reloadAnimation();
-        menuDropdownSlideUp();
-        displayPageAndAddActiveColor(4);
+    $(".all_news, .news_cont").click(function() {
+        $(".header_cont_right_side_menu_item:eq(4)").click();
     })
 
     $(".about_us_button").click(function() {
@@ -1096,14 +1109,16 @@ $(document).ready(function() {
     $.each(productsArray, function(i, e) {
         $(".products_single_items_cont").append("<div class='products_single_item_img'></div>");
         $(".products_single_items_cont").append("<div class='products_single_item_name'></div>");
-        $(`.products_single_item_img:eq(${i})`).css("background-image", 'url("./Images/products/' + e.product_img + '")')
+        $(`.products_single_item_img:eq(${i})`).css("background-image", 'url("./images/products/' + e.product_img + '")')
         $(`.products_single_item_name:eq(${i})`).text(`${e.product_name}`)
     })
 
     //defines all product item clicks 
-    for (var i = 0; i < productsArray.length; i++) {
-        productsSingleItemClickTrigger(i);
-    }
+    $.each(productsArray, function(index, element) {
+        $(`.product_main_grid_item:eq(${index})`).click(function() {
+            productsSingleItemClick(index, `${productsArray[index].product_name}`, `${productsArray[index].product_subcategory}`, `${productsArray[index].product_category}`);
+        })
+    })
 
     //hide items on category click
     $(".products_dropdown_pc_item, .products_category_drop_cont, .products_dropdown_block_line_text, .products_arrow_expand_item").click(function() {
@@ -1115,7 +1130,7 @@ $(document).ready(function() {
     //append producs_partner_cont
     $.each(partners, function(i, e) {
         $(".producs_partner_cont").append("<div class='producs_partner_cont_item'></div>")
-        $(".producs_partner_cont_item").eq(i).css("background-image", "url('./Images/" + e + "')")
+        $(".producs_partner_cont_item").eq(i).css("background-image", "url('./images/" + e + "')")
     })
 
 
@@ -1126,7 +1141,7 @@ $(document).ready(function() {
     //append products_include
     $.each(includes, function(i, e) {
         $(".products_includes").append("<div class='products_includes_item'></div>");
-        $(".products_includes_item").eq(i).css("background-image", "url('./Images/" + e + "')")
+        $(".products_includes_item").eq(i).css("background-image", "url('./images/" + e + "')")
     })
 
     //single item click dark background
@@ -1149,7 +1164,7 @@ $(document).ready(function() {
     //display single image and name on dark bg ( big image )
     $.each(productsArray, function(i, e) {
         $(".products_single_item_img").eq(i).click(function() {
-            $(".display_box_sip").css("background-image", "url('./Images/products/" + productsArray[i].product_img + "')")
+            $(".display_box_sip").css("background-image", "url('./images/products/" + productsArray[i].product_img + "')")
             $(".display_box_sip>span").text(`${productsArray[i].product_name}`);
         })
     })
@@ -1157,6 +1172,13 @@ $(document).ready(function() {
     $(".footer_map_text, .footer_map_icon").click(function() {
         $(".header_cont_right_side_menu_item:eq(6)").click();
     })
+
+    //clicking on products page will reset products view ( it will look the same when you first visit products page )
+    $(".header_cont_right_side_menu_item:eq(1)").click(function() {
+        $(".products_dropdown_pc_item:eq(0)").click();
+    })
+
+
 
     //search page click
     $(".display_box_search_icon").click(function() {
@@ -1171,8 +1193,7 @@ $(document).ready(function() {
         });
         $(`.${pages[7]}`).css("display", "block");
         menuDropdownSlideUp();
-        $(".search_results_item").remove();
-        $(".search_results_enter_a_word").remove();
+        $(".search_results_item, .search_results_enter_a_word, .search_results_no_info").remove();
         var searchText = $(".search_input").val();
         if (searchText === "") {
             $(".search_results_cont").append("<div class='search_results_enter_a_word'>Enter A Word</div>")
@@ -1180,20 +1201,33 @@ $(document).ready(function() {
             $.each(productsArray, (i, e) => {
                 if (e.product_name.match(new RegExp(searchText, "i")) !== null) {
                     $('.search_results_cont').append('<div class="search_results_item">' + e.product_name + '</div>')
+                    searchState = true;
                 }
             })
-            $(".search_results_item").click(function() {
-                console.log("asdjhg")
+            if (!searchState) {
+                $('.search_results_cont').append('<div class="search_results_no_info">Information is not found</div>')
+            } else {
+                $('.search_results_no_info').remove();
+                searchState = false;
+            }
+            $(".search_results_item").click(function(ev) {
+                $.each(productsArray, function(i, e) {
+                    if ($(ev.target).text() === e.product_name) {
+                        menuDropdownSlideUp();
+                        displayPageAndAddActiveColor(1);
+                        $(`.product_main_grid_item:eq(${i})`).click()
+                    }
+                })
             })
         }
     })
 
-
-
-
-
-
-
+    //sending mail
+    $(".message_submit").click(function() {
+        alert("done");
+        $(".contacts_form_cont").submit();
+        $(".contacts_form_cont").trigger("reset");
+    })
 
 
 
